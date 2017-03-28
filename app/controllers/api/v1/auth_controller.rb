@@ -17,7 +17,7 @@ class Api::V1::AuthController < ApiController
     end
 
     if user && user.valid_password?( params[:password] )
-      render :json => { :message => "Ok",
+      render :json => { :message => "OK",
                          :auth_token => user.authentication_token,
                          :user_id => user.id }
     else
@@ -29,6 +29,6 @@ class Api::V1::AuthController < ApiController
     current_user.generate_authentication_token # 重新产生一组，本来的 token 就失效了
     current_user.save!
 
-    render :json => { :message => "Ok"}
+    render :json => { :message => "OK"}
   end
 end
